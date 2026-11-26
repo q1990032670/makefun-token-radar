@@ -58,7 +58,10 @@ const issue = boardIssue(board, snapshot);
 if (issue !== null) fail(`the model produced a board the gate refuses: ${issue}`);
 
 mkdirSync(outputDir, { recursive: true });
-writeFileSync(join(outputDir, 'board.json'), `${JSON.stringify({ rows: board }, null, 1)}\n`);
+// Compact single-line JSON on purpose: the board is machine-read data,
+// not source anyone reads by eye, so it is written with no indentation.
+// The dossier from buildDossier is already a single canonical line.
+writeFileSync(join(outputDir, 'board.json'), `${JSON.stringify({ rows: board })}\n`);
 writeFileSync(join(outputDir, 'data.js'), dataScript(radar));
 
 /** Copy every regular, plainly named file of a directory; returns names. */

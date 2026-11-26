@@ -394,10 +394,14 @@ export function rationaleFor(
     ageDays === null
       ? 'tracking start unreported'
       : `${Math.round(ageDays / 30.4)} months tracked with no token recorded`;
+  const peerCaveat =
+    peers < 3
+      ? ' That peer set is thin, so this multiple leans on the wider market and deserves extra caution.'
+      : '';
   return (
     `${cat} peers trade at a median ${multiple.toFixed(2)}x market cap to TVL across ${peers} live token${peers === 1 ? '' : 's'}; ` +
     `applied to ${fmtUsd(p.tvl_usd)} of TVL with a ${momentum.toFixed(2)} momentum factor (${growth}) ` +
-    `and a ${maturity.toFixed(2)} maturity factor (${age}).`
+    `and a ${maturity.toFixed(2)} maturity factor (${age}).${peerCaveat}`
   );
 }
 

@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Token Launch Radar — pre-token protocols ranked by implied value</title>
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">
+    <span class="brand-mark" aria-hidden="true">◉</span>
+    <div>
+      <h1>Token Launch Radar</h1>
+      <p class="tagline">Protocols that record no token yet, ranked by what their launch would be worth — and how to farm each one.</p>
+    </div>
+  </div>
+  <div class="stamp" id="stamp">Loading snapshot…</div>
+</header>
+<main id="app" aria-busy="true"></main>
+<footer class="foot">
+  <p>Implied value is this radar's own model output: TVL × the median market-cap/TVL multiple of live tokens in the same category, adjusted for seven-day momentum and for time tracked with no token recorded. It is not a prediction that any protocol will issue a token. A protocol listed here records no token in the snapshot; that is a statement about the record, not proof none exists.</p>
+</footer>
+<script src="../data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
